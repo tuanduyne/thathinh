@@ -1,0 +1,23 @@
+/* Đặt ảnh làm background cho toàn bộ trang */
+body {
+    margin: 0; /* Loại bỏ khoảng trống mặc định */
+    padding: 0;
+    height: 100vh; /* Chiều cao toàn màn hình */
+    background-image: url('ig/pngtree-love-pink-cute-background-wallpaper-picture-image_1433202.jpg');
+    background-size: cover; /* Ảnh sẽ phủ kín màn hình */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    background-position: center; /* Canh giữa ảnh nền */
+    font-family: Arial, sans-serif; /* Chọn font chữ */
+    color: #ffffff; /* Màu chữ trắng */
+    text-align: center; /* Canh giữa nội dung */
+}
+
+/* Chỉnh định dạng nội dung */
+.content {
+    padding: 20px;
+    border-radius: 10px; /* Bo tròn góc */
+    color:black;
+    display: inline-block;
+    margin-top: 20%; /* Đẩy nội dung xuống dưới */
+    background: linear-gradient(135deg, rgba(255, 192, 203, 0.8), rgba(255, 240, 245, 0.8));
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư gửi em</title>
+    <style>
+        /* CSS cho toàn bộ trang */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('ig/pngtree-love-pink-cute-background-wallpaper-picture-image_1433202.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Khối chứa nội dung */
+        .content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Dòng câu hỏi */
+        #question {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4A154B;
+            margin-bottom: 20px;
+        }
+
+        /* Nút trả lời */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        button {
+            padding: 10px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            color: white;
+            background: #FF69B4;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: #D94A9D;
+            transform: scale(1.05);
+        }
+
+        /* Đoạn thư mới */
+        #thankYouMessage {
+            display: none; /* Ẩn ban đầu */
+            font-size: 1.5rem;
+            color: #4A154B;
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+
+        /* Nút tiếp tục */
+        #continueButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: #FF69B4;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        #continueButton:hover {
+            background: #D94A9D;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Câu hỏi -->
+        <div id="question">Em có yêu anh không?</div>
+        <!-- Nút trả lời -->
+        <div class="buttons">
+            <button id="yesButton" onclick="showMessage()">Dạ cóooo!</button>
+            <button id="noButton" onmouseover="moveButton()">Không bao giờ</button>
+        </div>
+        <!-- Đoạn thư sau khi chọn Dạ cóooo -->
+        <div id="thankYouMessage">Dám bấm Không bao giờ??</div>
+        <!-- Nút tiếp tục -->
+        <button id="continueButton" onclick="goToLink()">Tiếp tục</button>
+    </div>
+
+    <script>
+        // Nút "Không bao giờ" di chuyển ngẫu nhiên, đảm bảo không ra ngoài màn hình
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const maxX = window.innerWidth - button.offsetWidth - 20; // trừ 20px để đảm bảo không ra ngoài
+            const maxY = window.innerHeight - button.offsetHeight - 20; // trừ 20px để đảm bảo không ra ngoài
+
+            // Tạo tọa độ ngẫu nhiên trong vùng hiển thị
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        // Hiện đoạn thư khi bấm "Dạ cóooo!"
+        function showMessage() {
+            document.getElementById('question').style.display = 'none'; // Ẩn câu hỏi
+            document.querySelector('.buttons').style.display = 'none'; // Ẩn nút
+
+            let message = "Nói chứ anh yêu bé nhất đấy và tất cả điều này là anh tự làm á hy vọng sau khi em trải nghiệm xong tâm trạng em sẽ thoải mái hơn khi nói chuyện với anh nha!❤️"; // Nội dung thư
+            let i = 0;
+            let thankYouMessage = document.getElementById('thankYouMessage');
+            thankYouMessage.style.display = 'block'; // Hiện đoạn thư ban đầu
+
+            // Hiển thị thư dần dần
+            let interval = setInterval(() => {
+                thankYouMessage.textContent += message[i];
+                i++;
+                if (i === message.length) {
+                    clearInterval(interval); // Dừng khi hết nội dung
+                    document.getElementById('continueButton').style.display = 'block'; // Hiện nút "Tiếp tục"
+                }
+            }, 50); // Thời gian giữa mỗi ký tự
+        }
+
+        // Nút "Tiếp tục" chuyển đến liên kết Zalo
+        function goToLink() {
+            window.location.href = "https://zalo.me/0899455126"; // Liên kết Zalo
+        }
+    </script>
+</body>
+</html>
